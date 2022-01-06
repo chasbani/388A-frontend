@@ -32,9 +32,9 @@ upstream	https://gitlab.cs.umd.edu/arasevic/cmsc388Awinter2022-student.git (push
 __NOTE:__ while the origin url will vary and be unique for everyone the upstream will be identical for everyone.  
 
 `upstream` is a common repository that everyone will be able to `pull` from and add new files and changes to existing files in their own repositories. Your access to this repository is read only - in terms of git commands this is analogous to `git pull`. You can write to your origin repository and this is analagous to `git push`. The flow for the course is we will add new started code for projects/exercises to `upstream` and then to receive them you will issue the following command:  
-`git pull upstream master` .  
-This command will add the changes in the `upstream` repository to your local copy of your repository. At this point your local repository and your `origin` will be different. You can verify this by running `git status`. You should see something along the lines of your local repository is 1 (or more) commits ahead of origin master. To resolve this you just need to run:  
- `git push origin master`. Once that is done your local repository and your remote `origin` will be the same.  
+`git pull upstream main` .  
+This command will add the changes in the `upstream` repository to your local copy of your repository. At this point your local repository and your `origin` will be different. You can verify this by running `git status`. You should see something along the lines of your local repository is 1 (or more) commits ahead of origin main. To resolve this you just need to run:  
+ `git push origin main`. Once that is done your local repository and your remote `origin` will be the same.  
 
  ### submitting your work  
  Saving your files is not enough to be able to `push` your changes to your `origin`. Git doesn't track every file save you do - it only tracks commits. In order to commit your changes you should start with the following:  
@@ -44,7 +44,7 @@ This command will add the changes in the `upstream` repository to your local cop
  `git add relative/path/to/file/you/want/to/commit`  
  Since you are already in the directory that contains your repository there is no need to do absolute paths. Once you have added all of your files to be committed then you simply run:  
  `git commit -m "your commit message"`  
- The text you type inside of the parentheses will be attached to that specific commit and can be viewd in your commit history by running `git log`. When you are committing the code that you want to count as your submission for an assignment you should enter something similar to "completing custom codepen project". The final step is to then run `git push origin master`. If you do not push to your origin we will not be able to look at your code.  
+ The text you type inside of the parentheses will be attached to that specific commit and can be viewd in your commit history by running `git log`. When you are committing the code that you want to count as your submission for an assignment you should enter something similar to "completing custom codepen project". The final step is to then run `git push origin main`. If you do not push to your origin we will not be able to look at your code.  
 
  __NOTE:__ When submitting assignments always log into the [university gitlab server](https://gitlab.cs.umd.edu) after pushing. This is a sanity check and will prevent you from reveiving a zero because you thought you pushed after committing but in fact did not. It is also important to realize that if you get in the habit of pushing to your origin often you will always have a back-up of your work in case your local machine's hard drive fails.
 
@@ -56,4 +56,5 @@ This command will add the changes in the `upstream` repository to your local cop
 4.  `git pull`  ([reference](https://www.atlassian.com/git/tutorials/syncing/git-pull))
 5.  `git push` ([reference](https://www.atlassian.com/git/tutorials/syncing/git-push)) 
 6.  `git remote -v`  ([reference](https://www.atlassian.com/git/tutorials/syncing))
-7.  `git remote add upstream <upstream_url>` ([reference](https://docs.github.com/en/github/using-git/adding-a-remote))
+7.  `git remote add upstream <upstream_url>` ([reference](https://docs.github.com/en/github/using-git/adding-a-remote))  
+8. testing git workflow
