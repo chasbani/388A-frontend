@@ -26,16 +26,44 @@
 
       //Your task is to complete these four functions, according to the specifications
       //Action Movies - Display a list of action movies that were released in 2018. Output: <movie_title> (<year>)
-      function actionMovies() {}
+      function actionMovies() {
+        temp = movies.filter(e => e["genres"].includes("Action") && e["year"] == 2018);
+        temp1 = temp.map(e => `${e["title"]} (${e["year"]})`);
+        movieHTML.innerHTML = convertToHTML(temp1);
+      }
 
       //Tom Hanks - Display a list of all comedy movies that Tom Hanks acted in. Output: <movie_title> (<year>)
-      function tomHanks() {}
+      function tomHanks() {
+        temp = movies.filter(e => e["genres"].includes("Comedy") && e["cast"].includes("Tom Hanks"));
+        temp1 = temp.map(e => `${e["title"]} (${e["year"]})`);
+        movieHTML.innerHTML = convertToHTML(temp1);
+  
+      }
 
       //Soo 2017 - Display a list of all movies that came out in 2017 sorted alphabetically by movie title. Output: <movie_title> (<year>)
-      function soo2017() {}
+      function soo2017() {
+        temp = movies.filter(e => e["year"] == 2017);
+        temp.sort((fe, se) => fe["title"].localeCompare(se["title"]));
+        temp1 = temp.map(e => `${e["title"]} (${e["year"]})`);
+        movieHTML.innerHTML = convertToHTML(temp1);
+  
+      }
 
       //Movie Count - Display the number of movies that were released each year. Output: <year> : <number_of_movies>
-      function movieCount() {}
+      function movieCount() {
+        const reduce = (table, m)=>{ 
+            var y = m["year"]; 
+	            if(table.hasOwnProperty(y)) { 
+	               table[y] += 1; 
+	            } else { 
+	               table[y] = 1; 
+	            } 
+	            return table; 
+	         } 
+	      temp = movies.reduce(reduce, {});
+        temp1 = Object.entries(temp).map(e => `${e[0]} : ${e[1]}`);
+        movieHTML.innerHTML = convertToHTML(temp1);
+      }
 
       //Function that converts arrays into seperate HTML list elements. (Hint: Use this!)
       function convertToHTML(query) {
