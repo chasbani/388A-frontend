@@ -1,8 +1,34 @@
 import React, { Component } from "react";
+import List from "./List";
 
 class Search extends Component {
   
+  constructor(props) {
+    super(props);
+    this.update = this.update.bind(this);
+    this.state = {
+      places: null,
+      check: []
+    };
+  }
+  render() {
+      return (
+        <div>
+          <input type="text" id="in" onChange={() => this.update()}/>
+          <List data={this.state.check}/>
+        </div>
+      );
+  }
+  update() {
+    let temp = document.getElementById("in").value;
+    if (temp == "") {
+      temp = [];
+    } else {
+      temp = this.state.places.filter(e => e.state.includes(temp) || e.city.includes(temp)).map(e => <li key={e.latitude}>{`${e.city}, ${e.state}`}</li>);
+    }
+    this.setState({check: temp});  
 
+  }
   /* DO NOT MODIFY */
   componentDidMount() {
     const allPlaces = [];
@@ -17,4 +43,6 @@ class Search extends Component {
       .catch(error => console.log(error));
   }
 }
+
+export default Search;
 
